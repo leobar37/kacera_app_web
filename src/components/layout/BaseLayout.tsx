@@ -23,7 +23,7 @@ function BaseLayout({ nav, children, sidebar }: BaseLayoutProps) {
   return (
     <Grid sx={grid} background="white">
       <GridItem gridArea="nav">{nav}</GridItem>
-      <GridItem gridArea="content" marginTop="35px">
+      <GridItem overflowY="scroll" gridArea="content" marginTop="35px">
         {children}
       </GridItem>
       <GridItem gridArea="sidebar">{sidebar}</GridItem>

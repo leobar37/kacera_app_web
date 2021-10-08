@@ -35,7 +35,7 @@ const Ubication = () => {
     <Center background="#EAFCE4" padding="10px 12px" borderRadius="18px">
       <HStack>
         <BiMap color="primary" fontSize="1.4rem" />
-        <Text color="primary" fontSize="large" fontWeight="bold">
+        <Text color="primary" fontSize="md" fontWeight="bold">
           Yoque Yupanqui 257
         </Text>
       </HStack>
