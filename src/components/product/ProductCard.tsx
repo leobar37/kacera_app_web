@@ -5,7 +5,11 @@ import { css } from "@emotion/css";
 import { ClassNames } from "@emotion/react";
 import NextImage from "next/image";
 import { HoverMotion } from "@app/common/motion";
+import { useToCartToast } from "@app/components/cart";
+
 export const CardProduct = () => {
+  const toast = useToCartToast();
+
   const imageProductStyles = css`
     border-radius: 20px;
   `;
@@ -59,7 +63,17 @@ export const CardProduct = () => {
         </Text>
         <Text fontWeight="bold">S/ 0.75</Text>
         <Center width="100%">
-          <Button>Agregar</Button>
+          <Button
+            onClick={() => {
+              toast({
+                count: 1,
+                text: "Ver productos",
+                price: 50,
+              });
+            }}
+          >
+            Agregar
+          </Button>
         </Center>
       </VStack>
     </HoverMotion>

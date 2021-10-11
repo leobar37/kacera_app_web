@@ -3,8 +3,9 @@ import { BaseLayout, RowContent } from "@app/components/layout";
 import { Sidebar } from "@app/components/menu";
 import { NavBarRoot } from "@app/components/navbar";
 import { StoreBadge } from "@app/components/store";
-import { HStack, VStack } from "@chakra-ui/layout";
+import { HStack } from "@chakra-ui/layout";
 import { CardProduct } from "@app/components/product";
+
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {

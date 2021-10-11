@@ -15,6 +15,9 @@ export const Button = forwardRef<
       padding="10px 20px"
       shadow="2xl"
       width="150px"
+      _hover={{
+        background: "gray.300",
+      }}
       ref={ref as SafeAny}
       {...props}
     >

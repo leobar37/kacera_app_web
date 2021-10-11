@@ -17,7 +17,6 @@ export function HoverMotion({
   ...props
 }: PropsWithChildren<BoxProps>) {
   const Moti = motion(Box);
-
   return (
     <Moti variants={boxAnimation.box} whileHover={"hover"} {...props}>
       {children}

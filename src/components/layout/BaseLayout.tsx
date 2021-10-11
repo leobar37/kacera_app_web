@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { Grid, SystemStyleObject, GridItem } from "@chakra-ui/react";
 
 const grid: SystemStyleObject = {
-  gridTemplateColumns: "300px repeat(3,1fr)",
+  gridTemplateColumns: "10rem repeat(3,1fr)",
   gridTemplateRows: "100px  repeat(3,1fr)",
   height: "100vh",
   gridTemplateAreas: `

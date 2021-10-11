@@ -1,14 +1,11 @@
 import { matVa } from "@app/common/utils";
 import { Badge as _Badge, SystemStyleObject, Text } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
-import { useHover } from "@app/common/hooks";
 import { motion, Variants } from "framer-motion";
 type BadgeCategorieProps = {
   status: "selected" | "normal" | "disable";
 };
-
 const Badge = motion(_Badge);
-
 const boxAnimation: Record<string, Variants> = {
   box: {
     initial: {

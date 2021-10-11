@@ -11,12 +11,19 @@ import {
   InputLeftElement,
   SystemStyleObject,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { BiMap as _BiMap } from "react-icons/bi";
+
 import {
   FiSearch as _FiSearch,
   FiShoppingCart as _FiShoppingCart,
 } from "react-icons/fi";
+
+const BiMap = chakra(_BiMap);
+const FiSearch = chakra(_FiSearch);
+const FiShoppingCart = chakra(_FiShoppingCart);
 
 const gridNav: SystemStyleObject = {
   height: "100%",
@@ -24,15 +31,17 @@ const gridNav: SystemStyleObject = {
   justifyItems: "center",
   gridTemplateColumns: "repeat(6, 1fr)",
   gridTemplateRows: "1fr",
-  columnGap: "12px",
+  // columnGap: "12px",
 };
 
-const BiMap = chakra(_BiMap);
-const FiSearch = chakra(_FiSearch);
-const FiShoppingCart = chakra(_FiShoppingCart);
 const Ubication = () => {
   return (
-    <Center background="#EAFCE4" padding="10px 12px" borderRadius="18px">
+    <Center
+      width="250px"
+      background="#EAFCE4"
+      padding="10px 12px"
+      borderRadius="18px"
+    >
       <HStack>
         <BiMap color="primary" fontSize="1.4rem" />
         <Text color="primary" fontSize="md" fontWeight="bold">
@@ -44,8 +53,16 @@ const Ubication = () => {
 };
 
 const SearchInput = () => {
+  const size = useBreakpointValue({
+    md: "20rem",
+    lg: "30rem",
+    xl: "45rem",
+  });
+  useEffect(() => {
+    console.log(size);
+  }, [size]);
   return (
-    <FormControl width="650px">
+    <FormControl width={size}>
       <InputGroup>
         <InputLeftElement
           pointerEvents="none"
@@ -69,10 +86,10 @@ const NavBar = () => {
       <GridItem gridColumn="1 / 2">
         <Ubication />
       </GridItem>
-      <GridItem gridColumn="2 / 5">
+      <GridItem gridColumn="3 / 5">
         <SearchInput />
       </GridItem>
-      <GridItem>
+      <GridItem gridColumn="6 / 6" width="100%">
         <HStack>
           <Button background="transparent">
             <FiShoppingCart fontSize="18px" />
