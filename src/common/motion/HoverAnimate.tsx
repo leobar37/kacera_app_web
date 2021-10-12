@@ -9,6 +9,9 @@ const boxAnimation: Record<string, Variants> = {
     hover: {
       scale: 1.1,
     },
+    tap: {
+      scale: 0.8,
+    },
   },
 };
 
@@ -18,7 +21,13 @@ export function HoverMotion({
 }: PropsWithChildren<BoxProps>) {
   const Moti = motion(Box);
   return (
-    <Moti variants={boxAnimation.box} whileHover={"hover"} {...props}>
+    <Moti
+      variants={boxAnimation.box}
+      initial="initial"
+      whileHover={"hover"}
+      whileTap="tap"
+      {...props}
+    >
       {children}
     </Moti>
   );

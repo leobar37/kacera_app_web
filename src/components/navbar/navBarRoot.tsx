@@ -15,7 +15,8 @@ import {
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { BiMap as _BiMap } from "react-icons/bi";
-
+import { Badge } from "@app/components/ui";
+import { useCartModal } from "@app/components/cart";
 import {
   FiSearch as _FiSearch,
   FiShoppingCart as _FiShoppingCart,
@@ -79,6 +80,20 @@ const SearchInput = () => {
   );
 };
 
+const CartButton = () => {
+  const { onToggle } = useCartModal();
+  return (
+    <HStack spacing={5}>
+      <Badge count={8}>
+        <Button onClick={onToggle} background="transparent">
+          <FiShoppingCart fontSize="18px" />
+        </Button>
+      </Badge>
+      <Button>?</Button>
+    </HStack>
+  );
+};
+
 const NavBar = () => {
   return (
     <Grid sx={gridNav}>
@@ -90,12 +105,7 @@ const NavBar = () => {
         <SearchInput />
       </GridItem>
       <GridItem gridColumn="6 / 6" width="100%">
-        <HStack>
-          <Button background="transparent">
-            <FiShoppingCart fontSize="18px" />
-          </Button>
-          <Button>?</Button>
-        </HStack>
+        <CartButton />
       </GridItem>
     </Grid>
   );
