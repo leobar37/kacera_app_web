@@ -13,6 +13,13 @@ const grid: SystemStyleObject = {
   `,
 };
 
+const noNav = `
+"sidebar content content content"
+"sidebar content content content"
+"sidebar content content content"
+"sidebar content content content"
+`;
+
 export interface BaseLayoutProps {
   nav?: ReactNode;
   children?: ReactNode;
@@ -20,9 +27,13 @@ export interface BaseLayoutProps {
 }
 
 function BaseLayout({ nav, children, sidebar }: BaseLayoutProps) {
+  if (!nav) {
+    grid.gridTemplateAreas = noNav;
+  }
+
   return (
     <Grid sx={grid} background="white">
-      <GridItem gridArea="nav">{nav}</GridItem>
+      {nav && <GridItem gridArea="nav">{nav}</GridItem>}
       <GridItem overflowY="scroll" gridArea="content" marginTop="35px">
         {children}
       </GridItem>

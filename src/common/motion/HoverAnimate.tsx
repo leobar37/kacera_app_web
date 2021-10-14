@@ -10,7 +10,7 @@ const boxAnimation: Record<string, Variants> = {
       scale: 1.1,
     },
     tap: {
-      scale: 0.8,
+      scale: 0.9,
     },
   },
 };

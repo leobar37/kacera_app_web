@@ -8,6 +8,11 @@ function GlobalStyle() {
           @font-face {
             font-family: "Artico expanded";
             font-weight: 400;
+            src: url("/fonts/cretype--Artico.otf") format("opentype");
+          }
+          @font-face {
+            font-family: "Artico expanded";
+            font-weight: 300;
             src: url("/fonts/Artico-Expanded-Light.otf") format("opentype");
           }
           @font-face {
@@ -17,7 +22,7 @@ function GlobalStyle() {
           }
           @font-face {
             font-family: "Artico expanded";
-            font-weight: 300;
+            font-weight: 200;
             src: url("/fonts/Artico-Light.otf") format("opentype");
           }
           body {
