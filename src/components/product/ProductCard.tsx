@@ -6,8 +6,13 @@ import { ClassNames } from "@emotion/react";
 import NextImage from "next/image";
 import { HoverMotion } from "@app/common/motion";
 import { useToCartToast } from "@app/components/cart";
+import { Product } from "@app/common/@types";
+import { Price } from "@app/components/product";
 
-export const CardProduct = () => {
+type CardProductProps = {
+  product: Product;
+};
+export const CardProduct = ({ product }: CardProductProps) => {
   const toast = useToCartToast();
 
   const imageProductStyles = css`
@@ -17,6 +22,7 @@ export const CardProduct = () => {
   const imageSucursalStyles = css`
     border-radius: 50px;
   `;
+
   return (
     <HoverMotion>
       <VStack
@@ -39,7 +45,7 @@ export const CardProduct = () => {
               <Box position="absolute">
                 <NextImage
                   className={imageProductStyles}
-                  src="/images/tomatoes.jpg"
+                  src={product.imagenproducto}
                   width="380px"
                   height="250px"
                 />
@@ -47,7 +53,7 @@ export const CardProduct = () => {
               <Box position="absolute" top="10px" right="10px">
                 <NextImage
                   className={imageSucursalStyles}
-                  src="/images/bots.jpg"
+                  src={product.logosucursal}
                   width="30px"
                   height="30px"
                   objectFit="cover"
@@ -56,14 +62,16 @@ export const CardProduct = () => {
             </Box>
           )}
         </ClassNames>
-
-        <Text fontWeight="bold">Cebolla morada</Text>
+        <Text fontWeight="bold">{product.detalle}</Text>
         <Text fontWeight="light" color="gray.500">
-          S/3.60
+          <Price value={5} />
         </Text>
-        <Text fontWeight="bold">S/ 0.75</Text>
+        <Text fontWeight="bold">
+          <Price value={product.costoproducto} />
+        </Text>
         <Center width="100%">
           <Button
+            variant="normal"
             onClick={() => {
               toast({
                 count: 1,

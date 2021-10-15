@@ -5,16 +5,17 @@ const grid: SystemStyleObject = {
   gridTemplateColumns: "10rem repeat(3,1fr)",
   gridTemplateRows: "100px  repeat(3,1fr)",
   height: "100vh",
-  gridTemplateAreas: `
-     "sidebar nav nav nav"
-     "sidebar content content content"
-     "sidebar content content content"
-     "sidebar content content content"
-  `,
 };
 
 const noNav = `
 "sidebar content content content"
+"sidebar content content content"
+"sidebar content content content"
+"sidebar content content content"
+`;
+
+const navLg = `
+"sidebar nav nav nav"
 "sidebar content content content"
 "sidebar content content content"
 "sidebar content content content"
@@ -29,6 +30,8 @@ export interface BaseLayoutProps {
 function BaseLayout({ nav, children, sidebar }: BaseLayoutProps) {
   if (!nav) {
     grid.gridTemplateAreas = noNav;
+  } else {
+    grid.gridTemplateAreas = navLg;
   }
 
   return (

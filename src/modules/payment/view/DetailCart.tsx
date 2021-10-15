@@ -11,7 +11,7 @@ import {
   useToken,
 } from "@chakra-ui/react";
 import { MdArrowBackIosNew } from "react-icons/md";
-
+import NextLink from "next/link";
 const BackIcon = chakra(MdArrowBackIosNew);
 
 function DetailProducts() {
@@ -20,14 +20,18 @@ function DetailProducts() {
   return (
     <>
       <HStack my={10} spacing={4}>
-        <HoverMotion
-          cursor="pointer"
-          background="gray.100"
-          p={5}
-          borderRadius={25}
-        >
-          <BackIcon />
-        </HoverMotion>
+        <NextLink passHref href="/">
+          <HoverMotion
+            cursor="pointer"
+            as="a"
+            background="gray.100"
+            p={5}
+            borderRadius={25}
+          >
+            <BackIcon />
+          </HoverMotion>
+        </NextLink>
+
         <Heading>Pagar mi pedido</Heading>
       </HStack>
       <Box shadow="lg" padding="20px">

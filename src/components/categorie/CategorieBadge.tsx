@@ -2,10 +2,10 @@ import { matVa } from "@app/common/utils";
 import { Badge as _Badge, SystemStyleObject, Text } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import { motion, Variants } from "framer-motion";
-type BadgeCategorieProps = {
-  status: "selected" | "normal" | "disable";
-};
+import { Categorie } from "@app/common/@types";
+
 const Badge = motion(_Badge);
+
 const boxAnimation: Record<string, Variants> = {
   box: {
     initial: {
@@ -17,10 +17,12 @@ const boxAnimation: Record<string, Variants> = {
   },
 };
 
-const BadgeCategorie = ({
-  status,
-  children,
-}: PropsWithChildren<BadgeCategorieProps>) => {
+type BadgeCategorieProps = {
+  status: "selected" | "normal" | "disable";
+  categorie: Categorie;
+};
+
+const BadgeCategorie = ({ status, categorie }: BadgeCategorieProps) => {
   const statusStyle = matVa<BadgeCategorieProps["status"], SystemStyleObject>(
     status
   );
@@ -31,6 +33,10 @@ const BadgeCategorie = ({
     },
     normal: {
       background: "transparent",
+      _hover: {
+        background: "primary",
+        color: "white",
+      },
     },
   });
 
@@ -40,6 +46,9 @@ const BadgeCategorie = ({
     },
     normal: {
       color: "gray.400",
+      _hover: {
+        color: "inherit",
+      },
     },
   });
 
@@ -50,7 +59,7 @@ const BadgeCategorie = ({
       borderRadius="19px"
       display="flex"
       justifyContent="center"
-      width="140px"
+      maxWidth="350px"
       cursor="pointer"
       variants={boxAnimation.box}
       whileHover="hover"
@@ -62,7 +71,7 @@ const BadgeCategorie = ({
         display="block"
         fontSize="lg"
       >
-        {children}
+        {categorie.categoria}
       </Text>
     </Badge>
   );

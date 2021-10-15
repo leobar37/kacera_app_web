@@ -27,6 +27,7 @@ export const Button = forwardRef<
     normal: {
       shadow: "2xl",
       width: "150px",
+      color: "primary",
       _hover: {
         background: "gray.300",
       },
