@@ -4,6 +4,3 @@
 
 
 
-## No existen filtros por categoria
-
-dentro del prototipo exit

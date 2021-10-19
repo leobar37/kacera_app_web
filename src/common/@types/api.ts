@@ -35,8 +35,11 @@ export interface Product {
   unidadmedida: string;
   costoproducto: number;
   detalle: string;
+  // La cantidad minima de producto
   compraminima: number;
+  //
   compramaxima: number;
+  // +1 + 1
   incremento: number;
   imagenproducto: string;
   idtienda: number;

@@ -6,7 +6,9 @@ import { CartModal } from "@app/components/cart";
 import "swiper/css";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { AuthModal } from "@app/modules/auth";
 // Create a client
+
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -16,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <Component {...pageProps} />
         <CartModal />
+        <AuthModal />
       </ChakraProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
