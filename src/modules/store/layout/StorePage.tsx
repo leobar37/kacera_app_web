@@ -8,7 +8,7 @@ import { useHomeProducts, useCategories } from "@app/modules/store/controller";
 import type { NextPage } from "next";
 import { RowProduct, RowCategorie } from "../components";
 const Home: NextPage = () => {
-  const { data } = useHomeProducts();
+  const { data: homeProducts } = useHomeProducts();
   const { categories } = useCategories();
   console.log(categories);
 
@@ -24,13 +24,19 @@ const Home: NextPage = () => {
         </HStack>
       </RowContent>
       <RowCategorie categories={categories} />
-      <RowProduct title={"Cerca de mi"} products={data?.AHomeCercademi} />
-      <RowProduct title={"Lo más pedido"} products={data?.AHomeMaspedidos} />
+      <RowProduct
+        title={"Cerca de mi"}
+        products={homeProducts?.AHomeCercademi}
+      />
+      <RowProduct
+        title={"Lo más pedido"}
+        products={homeProducts?.AHomeMaspedidos}
+      />
       <RowProduct
         title={"Nuevos productos"}
-        products={data?.AHomeNuevosproductos}
+        products={homeProducts?.AHomeNuevosproductos}
       />
-      <RowProduct title={"Ofertas"} products={data?.AHomeOfertas} />
+      <RowProduct title={"Ofertas"} products={homeProducts?.AHomeOfertas} />
     </BaseLayout>
   );
 };

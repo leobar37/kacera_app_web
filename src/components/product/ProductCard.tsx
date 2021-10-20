@@ -64,7 +64,7 @@ export const CardProduct = ({ product }: CardProductProps) => {
         </ClassNames>
         <Text fontWeight="bold">{product.detalle}</Text>
         <Text fontWeight="light" color="gray.500">
-          <Price value={5} />
+          <Price value={product.incremento} />
         </Text>
         <Text fontWeight="bold">
           <Price value={product.costoproducto} />

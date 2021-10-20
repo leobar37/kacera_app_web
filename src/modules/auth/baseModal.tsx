@@ -12,7 +12,7 @@ import { useToken } from "@chakra-ui/react";
 export function AuthModal() {
   const primaryColor = useToken("colors", ["primary"]);
   const { isOpen, onClose } = useDisclosure({
-    isOpen: true,
+    isOpen: false,
   });
 
   return (
